@@ -1,0 +1,93 @@
+<h3 class="text-center mb-3">Employee-List</h3>
+<!-- Button trigger modal -->
+<div class="text-center mb-3">
+  <button
+    type="button"
+    class="btn btn-success"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Add Employee
+  </button>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="handleSubmit()" >
+          <div class="mb-3">
+            <label for="" class="form-label">Full Name</label>
+            <input type="text" name="fullname"  [(ngModel)]='SingleEmployee.fullname' class="form-control"  />
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Job Designation</label>
+            <input type="text" name="job"  [(ngModel)]='SingleEmployee.job' class="form-control" id="" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              type="email"
+              name="email"
+              [(ngModel)]='SingleEmployee.email'
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-outline-success">
+              Add Employee
+            </button>
+          </div>
+        </form>
+
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="table-light card p-3 w-50 mx-auto">
+  <table>
+    <thead>
+      <tr class="">
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Job-Title</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let employee of EmployeeDetail; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ employee.fullname }}</td>
+        <td>{{ employee.job }}</td>
+        <td>{{ employee.email }}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+</div>
